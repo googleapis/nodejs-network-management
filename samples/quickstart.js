@@ -27,7 +27,6 @@ async function main(projectId) {
   // Creates a client
   const client = new ReachabilityServiceClient();
 
-  //TODO(library generator): write the actual function you will be testing
   async function listConnectivityTests() {
     const tests = await client.listConnectivityTests({
       parent: `projects/${projectId}/locations/global`,
