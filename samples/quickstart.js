@@ -17,8 +17,6 @@ async function main(projectId) {
   // [START nodejs_network_management_quickstart]
   // Imports the Google Cloud client library
 
-  // remove this line after package is released
-  // eslint-disable-next-line node/no-missing-require
   const {
     ReachabilityServiceClient,
   } = require('@google-cloud/network-management');
@@ -27,7 +25,6 @@ async function main(projectId) {
   // const projectId = 'my-project'
 
   // Creates a client
-  // eslint-disable-next-line no-unused-vars
   const client = new ReachabilityServiceClient();
 
   //TODO(library generator): write the actual function you will be testing
