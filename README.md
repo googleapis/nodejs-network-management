@@ -60,8 +60,6 @@ npm install @google-cloud/network-management
 ```javascript
 // Imports the Google Cloud client library
 
-// remove this line after package is released
-// eslint-disable-next-line node/no-missing-require
 const {
   ReachabilityServiceClient,
 } = require('@google-cloud/network-management');
@@ -70,7 +68,6 @@ const {
 // const projectId = 'my-project'
 
 // Creates a client
-// eslint-disable-next-line no-unused-vars
 const client = new ReachabilityServiceClient();
 
 //TODO(library generator): write the actual function you will be testing
