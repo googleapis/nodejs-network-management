@@ -456,6 +456,10 @@ export class ReachabilityServiceClient {
    *   for more details and examples.
    * @example
    * const [response] = await client.getConnectivityTest(request);
+   *
+   * @example <caption>include:samples/generated/v1beta1/reachability_service.get_connectivity_test.js</caption>
+   * region_tag:networkmanagement_get_connectivity_test_sample
+   *
    */
   getConnectivityTest(
     request?: protos.google.cloud.networkmanagement.v1beta1.IGetConnectivityTestRequest,
@@ -583,6 +587,10 @@ export class ReachabilityServiceClient {
    * @example
    * const [operation] = await client.createConnectivityTest(request);
    * const [response] = await operation.promise();
+   *
+   * @example <caption>include:samples/generated/v1beta1/reachability_service.create_connectivity_test.js</caption>
+   * region_tag:networkmanagement_create_connectivity_test_sample
+   *
    */
   createConnectivityTest(
     request?: protos.google.cloud.networkmanagement.v1beta1.ICreateConnectivityTestRequest,
@@ -650,6 +658,10 @@ export class ReachabilityServiceClient {
    * console.log(decodedOperation.result);
    * console.log(decodedOperation.done);
    * console.log(decodedOperation.metadata);
+   *
+   * @example <caption>include:samples/generated/v1beta1/reachability_service.create_connectivity_test.js</caption>
+   * region_tag:networkmanagement_create_connectivity_test_sample
+   *
    */
   async checkCreateConnectivityTestProgress(
     name: string
@@ -744,6 +756,10 @@ export class ReachabilityServiceClient {
    * @example
    * const [operation] = await client.updateConnectivityTest(request);
    * const [response] = await operation.promise();
+   *
+   * @example <caption>include:samples/generated/v1beta1/reachability_service.update_connectivity_test.js</caption>
+   * region_tag:networkmanagement_update_connectivity_test_sample
+   *
    */
   updateConnectivityTest(
     request?: protos.google.cloud.networkmanagement.v1beta1.IUpdateConnectivityTestRequest,
@@ -811,6 +827,10 @@ export class ReachabilityServiceClient {
    * console.log(decodedOperation.result);
    * console.log(decodedOperation.done);
    * console.log(decodedOperation.metadata);
+   *
+   * @example <caption>include:samples/generated/v1beta1/reachability_service.update_connectivity_test.js</caption>
+   * region_tag:networkmanagement_update_connectivity_test_sample
+   *
    */
   async checkUpdateConnectivityTestProgress(
     name: string
@@ -901,6 +921,10 @@ export class ReachabilityServiceClient {
    * @example
    * const [operation] = await client.rerunConnectivityTest(request);
    * const [response] = await operation.promise();
+   *
+   * @example <caption>include:samples/generated/v1beta1/reachability_service.rerun_connectivity_test.js</caption>
+   * region_tag:networkmanagement_rerun_connectivity_test_sample
+   *
    */
   rerunConnectivityTest(
     request?: protos.google.cloud.networkmanagement.v1beta1.IRerunConnectivityTestRequest,
@@ -964,6 +988,10 @@ export class ReachabilityServiceClient {
    * console.log(decodedOperation.result);
    * console.log(decodedOperation.done);
    * console.log(decodedOperation.metadata);
+   *
+   * @example <caption>include:samples/generated/v1beta1/reachability_service.rerun_connectivity_test.js</caption>
+   * region_tag:networkmanagement_rerun_connectivity_test_sample
+   *
    */
   async checkRerunConnectivityTestProgress(
     name: string
@@ -1043,6 +1071,10 @@ export class ReachabilityServiceClient {
    * @example
    * const [operation] = await client.deleteConnectivityTest(request);
    * const [response] = await operation.promise();
+   *
+   * @example <caption>include:samples/generated/v1beta1/reachability_service.delete_connectivity_test.js</caption>
+   * region_tag:networkmanagement_delete_connectivity_test_sample
+   *
    */
   deleteConnectivityTest(
     request?: protos.google.cloud.networkmanagement.v1beta1.IDeleteConnectivityTestRequest,
@@ -1110,6 +1142,10 @@ export class ReachabilityServiceClient {
    * console.log(decodedOperation.result);
    * console.log(decodedOperation.done);
    * console.log(decodedOperation.metadata);
+   *
+   * @example <caption>include:samples/generated/v1beta1/reachability_service.delete_connectivity_test.js</caption>
+   * region_tag:networkmanagement_delete_connectivity_test_sample
+   *
    */
   async checkDeleteConnectivityTestProgress(
     name: string
@@ -1209,6 +1245,10 @@ export class ReachabilityServiceClient {
    *   Please see the
    *   [documentation](https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#auto-pagination)
    *   for more details and examples.
+   *
+   * @example <caption>include:samples/generated/v1beta1/reachability_service.list_connectivity_tests.js</caption>
+   * region_tag:networkmanagement_list_connectivity_tests_sample
+   *
    */
   listConnectivityTests(
     request?: protos.google.cloud.networkmanagement.v1beta1.IListConnectivityTestsRequest,
@@ -1297,6 +1337,10 @@ export class ReachabilityServiceClient {
    *   Please see the
    *   [documentation](https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#auto-pagination)
    *   for more details and examples.
+   *
+   * @example <caption>include:samples/generated/v1beta1/reachability_service.list_connectivity_tests.js</caption>
+   * region_tag:networkmanagement_list_connectivity_tests_sample
+   *
    */
   listConnectivityTestsStream(
     request?: protos.google.cloud.networkmanagement.v1beta1.IListConnectivityTestsRequest,
@@ -1310,7 +1354,8 @@ export class ReachabilityServiceClient {
       gax.routingHeader.fromParams({
         parent: request.parent || '',
       });
-    const callSettings = new gax.CallSettings(options);
+    const defaultCallSettings = this._defaults['listConnectivityTests'];
+    const callSettings = defaultCallSettings.merge(options);
     this.initialize();
     return this.descriptors.page.listConnectivityTests.createStream(
       this.innerApiCalls.listConnectivityTests as gax.GaxCall,
@@ -1368,6 +1413,10 @@ export class ReachabilityServiceClient {
    * for await (const response of iterable) {
    *   // process response
    * }
+   *
+   * @example <caption>include:samples/generated/v1beta1/reachability_service.list_connectivity_tests.js</caption>
+   * region_tag:networkmanagement_list_connectivity_tests_sample
+   *
    */
   listConnectivityTestsAsync(
     request?: protos.google.cloud.networkmanagement.v1beta1.IListConnectivityTestsRequest,
@@ -1382,7 +1431,8 @@ export class ReachabilityServiceClient {
         parent: request.parent || '',
       });
     options = options || {};
-    const callSettings = new gax.CallSettings(options);
+    const defaultCallSettings = this._defaults['listConnectivityTests'];
+    const callSettings = defaultCallSettings.merge(options);
     this.initialize();
     return this.descriptors.page.listConnectivityTests.asyncIterate(
       this.innerApiCalls['listConnectivityTests'] as GaxCall,
