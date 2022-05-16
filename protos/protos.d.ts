@@ -2898,42 +2898,42 @@ export namespace google {
                 namespace ReachabilityService {
 
                     /**
-                     * Callback as used by {@link google.cloud.networkmanagement.v1.ReachabilityService|listConnectivityTests}.
+                     * Callback as used by {@link google.cloud.networkmanagement.v1.ReachabilityService#listConnectivityTests}.
                      * @param error Error, if any
                      * @param [response] ListConnectivityTestsResponse
                      */
                     type ListConnectivityTestsCallback = (error: (Error|null), response?: google.cloud.networkmanagement.v1.ListConnectivityTestsResponse) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.networkmanagement.v1.ReachabilityService|getConnectivityTest}.
+                     * Callback as used by {@link google.cloud.networkmanagement.v1.ReachabilityService#getConnectivityTest}.
                      * @param error Error, if any
                      * @param [response] ConnectivityTest
                      */
                     type GetConnectivityTestCallback = (error: (Error|null), response?: google.cloud.networkmanagement.v1.ConnectivityTest) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.networkmanagement.v1.ReachabilityService|createConnectivityTest}.
+                     * Callback as used by {@link google.cloud.networkmanagement.v1.ReachabilityService#createConnectivityTest}.
                      * @param error Error, if any
                      * @param [response] Operation
                      */
                     type CreateConnectivityTestCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.networkmanagement.v1.ReachabilityService|updateConnectivityTest}.
+                     * Callback as used by {@link google.cloud.networkmanagement.v1.ReachabilityService#updateConnectivityTest}.
                      * @param error Error, if any
                      * @param [response] Operation
                      */
                     type UpdateConnectivityTestCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.networkmanagement.v1.ReachabilityService|rerunConnectivityTest}.
+                     * Callback as used by {@link google.cloud.networkmanagement.v1.ReachabilityService#rerunConnectivityTest}.
                      * @param error Error, if any
                      * @param [response] Operation
                      */
                     type RerunConnectivityTestCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.networkmanagement.v1.ReachabilityService|deleteConnectivityTest}.
+                     * Callback as used by {@link google.cloud.networkmanagement.v1.ReachabilityService#deleteConnectivityTest}.
                      * @param error Error, if any
                      * @param [response] Operation
                      */
@@ -6969,42 +6969,42 @@ export namespace google {
                 namespace ReachabilityService {
 
                     /**
-                     * Callback as used by {@link google.cloud.networkmanagement.v1beta1.ReachabilityService|listConnectivityTests}.
+                     * Callback as used by {@link google.cloud.networkmanagement.v1beta1.ReachabilityService#listConnectivityTests}.
                      * @param error Error, if any
                      * @param [response] ListConnectivityTestsResponse
                      */
                     type ListConnectivityTestsCallback = (error: (Error|null), response?: google.cloud.networkmanagement.v1beta1.ListConnectivityTestsResponse) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.networkmanagement.v1beta1.ReachabilityService|getConnectivityTest}.
+                     * Callback as used by {@link google.cloud.networkmanagement.v1beta1.ReachabilityService#getConnectivityTest}.
                      * @param error Error, if any
                      * @param [response] ConnectivityTest
                      */
                     type GetConnectivityTestCallback = (error: (Error|null), response?: google.cloud.networkmanagement.v1beta1.ConnectivityTest) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.networkmanagement.v1beta1.ReachabilityService|createConnectivityTest}.
+                     * Callback as used by {@link google.cloud.networkmanagement.v1beta1.ReachabilityService#createConnectivityTest}.
                      * @param error Error, if any
                      * @param [response] Operation
                      */
                     type CreateConnectivityTestCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.networkmanagement.v1beta1.ReachabilityService|updateConnectivityTest}.
+                     * Callback as used by {@link google.cloud.networkmanagement.v1beta1.ReachabilityService#updateConnectivityTest}.
                      * @param error Error, if any
                      * @param [response] Operation
                      */
                     type UpdateConnectivityTestCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.networkmanagement.v1beta1.ReachabilityService|rerunConnectivityTest}.
+                     * Callback as used by {@link google.cloud.networkmanagement.v1beta1.ReachabilityService#rerunConnectivityTest}.
                      * @param error Error, if any
                      * @param [response] Operation
                      */
                     type RerunConnectivityTestCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.networkmanagement.v1beta1.ReachabilityService|deleteConnectivityTest}.
+                     * Callback as used by {@link google.cloud.networkmanagement.v1beta1.ReachabilityService#deleteConnectivityTest}.
                      * @param error Error, if any
                      * @param [response] Operation
                      */
@@ -10271,9 +10271,6 @@ export namespace google {
             /** FieldOptions lazy */
             lazy?: (boolean|null);
 
-            /** FieldOptions unverifiedLazy */
-            unverifiedLazy?: (boolean|null);
-
             /** FieldOptions deprecated */
             deprecated?: (boolean|null);
 
@@ -10310,9 +10307,6 @@ export namespace google {
 
             /** FieldOptions lazy. */
             public lazy: boolean;
-
-            /** FieldOptions unverifiedLazy. */
-            public unverifiedLazy: boolean;
 
             /** FieldOptions deprecated. */
             public deprecated: boolean;
@@ -12221,35 +12215,35 @@ export namespace google {
         namespace Operations {
 
             /**
-             * Callback as used by {@link google.longrunning.Operations|listOperations}.
+             * Callback as used by {@link google.longrunning.Operations#listOperations}.
              * @param error Error, if any
              * @param [response] ListOperationsResponse
              */
             type ListOperationsCallback = (error: (Error|null), response?: google.longrunning.ListOperationsResponse) => void;
 
             /**
-             * Callback as used by {@link google.longrunning.Operations|getOperation}.
+             * Callback as used by {@link google.longrunning.Operations#getOperation}.
              * @param error Error, if any
              * @param [response] Operation
              */
             type GetOperationCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
             /**
-             * Callback as used by {@link google.longrunning.Operations|deleteOperation}.
+             * Callback as used by {@link google.longrunning.Operations#deleteOperation}.
              * @param error Error, if any
              * @param [response] Empty
              */
             type DeleteOperationCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
 
             /**
-             * Callback as used by {@link google.longrunning.Operations|cancelOperation}.
+             * Callback as used by {@link google.longrunning.Operations#cancelOperation}.
              * @param error Error, if any
              * @param [response] Empty
              */
             type CancelOperationCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
 
             /**
-             * Callback as used by {@link google.longrunning.Operations|waitOperation}.
+             * Callback as used by {@link google.longrunning.Operations#waitOperation}.
              * @param error Error, if any
              * @param [response] Operation
              */
