@@ -1984,6 +1984,10 @@
                         "destinationNetworkUri": {
                           "type": "string",
                           "id": 7
+                        },
+                        "sourceAgentUri": {
+                          "type": "string",
+                          "id": 8
                         }
                       }
                     },

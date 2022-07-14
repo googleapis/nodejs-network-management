@@ -6077,6 +6077,9 @@ export namespace google {
 
                     /** EndpointInfo destinationNetworkUri */
                     destinationNetworkUri?: (string|null);
+
+                    /** EndpointInfo sourceAgentUri */
+                    sourceAgentUri?: (string|null);
                 }
 
                 /** Represents an EndpointInfo. */
@@ -6108,6 +6111,9 @@ export namespace google {
 
                     /** EndpointInfo destinationNetworkUri. */
                     public destinationNetworkUri: string;
+
+                    /** EndpointInfo sourceAgentUri. */
+                    public sourceAgentUri: string;
 
                     /**
                      * Creates a new EndpointInfo instance using the specified properties.

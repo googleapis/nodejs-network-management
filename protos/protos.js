@@ -16739,6 +16739,7 @@
                          * @property {number|null} [destinationPort] EndpointInfo destinationPort
                          * @property {string|null} [sourceNetworkUri] EndpointInfo sourceNetworkUri
                          * @property {string|null} [destinationNetworkUri] EndpointInfo destinationNetworkUri
+                         * @property {string|null} [sourceAgentUri] EndpointInfo sourceAgentUri
                          */
     
                         /**
@@ -16813,6 +16814,14 @@
                         EndpointInfo.prototype.destinationNetworkUri = "";
     
                         /**
+                         * EndpointInfo sourceAgentUri.
+                         * @member {string} sourceAgentUri
+                         * @memberof google.cloud.networkmanagement.v1beta1.EndpointInfo
+                         * @instance
+                         */
+                        EndpointInfo.prototype.sourceAgentUri = "";
+    
+                        /**
                          * Creates a new EndpointInfo instance using the specified properties.
                          * @function create
                          * @memberof google.cloud.networkmanagement.v1beta1.EndpointInfo
@@ -16850,6 +16859,8 @@
                                 writer.uint32(/* id 6, wireType 2 =*/50).string(message.sourceNetworkUri);
                             if (message.destinationNetworkUri != null && Object.hasOwnProperty.call(message, "destinationNetworkUri"))
                                 writer.uint32(/* id 7, wireType 2 =*/58).string(message.destinationNetworkUri);
+                            if (message.sourceAgentUri != null && Object.hasOwnProperty.call(message, "sourceAgentUri"))
+                                writer.uint32(/* id 8, wireType 2 =*/66).string(message.sourceAgentUri);
                             return writer;
                         };
     
@@ -16904,6 +16915,9 @@
                                     break;
                                 case 7:
                                     message.destinationNetworkUri = reader.string();
+                                    break;
+                                case 8:
+                                    message.sourceAgentUri = reader.string();
                                     break;
                                 default:
                                     reader.skipType(tag & 7);
@@ -16961,6 +16975,9 @@
                             if (message.destinationNetworkUri != null && message.hasOwnProperty("destinationNetworkUri"))
                                 if (!$util.isString(message.destinationNetworkUri))
                                     return "destinationNetworkUri: string expected";
+                            if (message.sourceAgentUri != null && message.hasOwnProperty("sourceAgentUri"))
+                                if (!$util.isString(message.sourceAgentUri))
+                                    return "sourceAgentUri: string expected";
                             return null;
                         };
     
@@ -16990,6 +17007,8 @@
                                 message.sourceNetworkUri = String(object.sourceNetworkUri);
                             if (object.destinationNetworkUri != null)
                                 message.destinationNetworkUri = String(object.destinationNetworkUri);
+                            if (object.sourceAgentUri != null)
+                                message.sourceAgentUri = String(object.sourceAgentUri);
                             return message;
                         };
     
@@ -17014,6 +17033,7 @@
                                 object.destinationPort = 0;
                                 object.sourceNetworkUri = "";
                                 object.destinationNetworkUri = "";
+                                object.sourceAgentUri = "";
                             }
                             if (message.sourceIp != null && message.hasOwnProperty("sourceIp"))
                                 object.sourceIp = message.sourceIp;
@@ -17029,6 +17049,8 @@
                                 object.sourceNetworkUri = message.sourceNetworkUri;
                             if (message.destinationNetworkUri != null && message.hasOwnProperty("destinationNetworkUri"))
                                 object.destinationNetworkUri = message.destinationNetworkUri;
+                            if (message.sourceAgentUri != null && message.hasOwnProperty("sourceAgentUri"))
+                                object.sourceAgentUri = message.sourceAgentUri;
                             return object;
                         };
     
