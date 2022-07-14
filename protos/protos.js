@@ -14706,6 +14706,7 @@
                                 case 8:
                                 case 9:
                                 case 10:
+                                case 11:
                                     break;
                                 }
                             if (message.displayName != null && message.hasOwnProperty("displayName"))
@@ -14822,6 +14823,10 @@
                             case "NEXT_HOP_ILB":
                             case 10:
                                 message.nextHopType = 10;
+                                break;
+                            case "NEXT_HOP_ROUTER_APPLIANCE":
+                            case 11:
+                                message.nextHopType = 11;
                                 break;
                             }
                             if (object.displayName != null)
@@ -14945,6 +14950,7 @@
                          * @property {number} NEXT_HOP_INTERNET_GATEWAY=8 NEXT_HOP_INTERNET_GATEWAY value
                          * @property {number} NEXT_HOP_BLACKHOLE=9 NEXT_HOP_BLACKHOLE value
                          * @property {number} NEXT_HOP_ILB=10 NEXT_HOP_ILB value
+                         * @property {number} NEXT_HOP_ROUTER_APPLIANCE=11 NEXT_HOP_ROUTER_APPLIANCE value
                          */
                         RouteInfo.NextHopType = (function() {
                             var valuesById = {}, values = Object.create(valuesById);
@@ -14959,6 +14965,7 @@
                             values[valuesById[8] = "NEXT_HOP_INTERNET_GATEWAY"] = 8;
                             values[valuesById[9] = "NEXT_HOP_BLACKHOLE"] = 9;
                             values[valuesById[10] = "NEXT_HOP_ILB"] = 10;
+                            values[valuesById[11] = "NEXT_HOP_ROUTER_APPLIANCE"] = 11;
                             return values;
                         })();
     

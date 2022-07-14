@@ -1760,7 +1760,8 @@
                             "NEXT_HOP_VPN_GATEWAY": 7,
                             "NEXT_HOP_INTERNET_GATEWAY": 8,
                             "NEXT_HOP_BLACKHOLE": 9,
-                            "NEXT_HOP_ILB": 10
+                            "NEXT_HOP_ILB": 10,
+                            "NEXT_HOP_ROUTER_APPLIANCE": 11
                           }
                         }
                       }
