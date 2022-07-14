@@ -11763,6 +11763,7 @@
                          * @property {number|null} [successfulProbeCount] ProbingDetails successfulProbeCount
                          * @property {google.cloud.networkmanagement.v1beta1.IEndpointInfo|null} [endpointInfo] ProbingDetails endpointInfo
                          * @property {google.cloud.networkmanagement.v1beta1.ILatencyDistribution|null} [probingLatency] ProbingDetails probingLatency
+                         * @property {google.cloud.networkmanagement.v1beta1.ProbingDetails.IEdgeLocation|null} [destinationEgressLocation] ProbingDetails destinationEgressLocation
                          */
     
                         /**
@@ -11845,6 +11846,14 @@
                         ProbingDetails.prototype.probingLatency = null;
     
                         /**
+                         * ProbingDetails destinationEgressLocation.
+                         * @member {google.cloud.networkmanagement.v1beta1.ProbingDetails.IEdgeLocation|null|undefined} destinationEgressLocation
+                         * @memberof google.cloud.networkmanagement.v1beta1.ProbingDetails
+                         * @instance
+                         */
+                        ProbingDetails.prototype.destinationEgressLocation = null;
+    
+                        /**
                          * Creates a new ProbingDetails instance using the specified properties.
                          * @function create
                          * @memberof google.cloud.networkmanagement.v1beta1.ProbingDetails
@@ -11884,6 +11893,8 @@
                                 $root.google.cloud.networkmanagement.v1beta1.EndpointInfo.encode(message.endpointInfo, writer.uint32(/* id 7, wireType 2 =*/58).fork()).ldelim();
                             if (message.probingLatency != null && Object.hasOwnProperty.call(message, "probingLatency"))
                                 $root.google.cloud.networkmanagement.v1beta1.LatencyDistribution.encode(message.probingLatency, writer.uint32(/* id 8, wireType 2 =*/66).fork()).ldelim();
+                            if (message.destinationEgressLocation != null && Object.hasOwnProperty.call(message, "destinationEgressLocation"))
+                                $root.google.cloud.networkmanagement.v1beta1.ProbingDetails.EdgeLocation.encode(message.destinationEgressLocation, writer.uint32(/* id 9, wireType 2 =*/74).fork()).ldelim();
                             return writer;
                         };
     
@@ -11941,6 +11952,9 @@
                                     break;
                                 case 8:
                                     message.probingLatency = $root.google.cloud.networkmanagement.v1beta1.LatencyDistribution.decode(reader, reader.uint32());
+                                    break;
+                                case 9:
+                                    message.destinationEgressLocation = $root.google.cloud.networkmanagement.v1beta1.ProbingDetails.EdgeLocation.decode(reader, reader.uint32());
                                     break;
                                 default:
                                     reader.skipType(tag & 7);
@@ -12023,6 +12037,11 @@
                                 if (error)
                                     return "probingLatency." + error;
                             }
+                            if (message.destinationEgressLocation != null && message.hasOwnProperty("destinationEgressLocation")) {
+                                var error = $root.google.cloud.networkmanagement.v1beta1.ProbingDetails.EdgeLocation.verify(message.destinationEgressLocation);
+                                if (error)
+                                    return "destinationEgressLocation." + error;
+                            }
                             return null;
                         };
     
@@ -12098,6 +12117,11 @@
                                     throw TypeError(".google.cloud.networkmanagement.v1beta1.ProbingDetails.probingLatency: object expected");
                                 message.probingLatency = $root.google.cloud.networkmanagement.v1beta1.LatencyDistribution.fromObject(object.probingLatency);
                             }
+                            if (object.destinationEgressLocation != null) {
+                                if (typeof object.destinationEgressLocation !== "object")
+                                    throw TypeError(".google.cloud.networkmanagement.v1beta1.ProbingDetails.destinationEgressLocation: object expected");
+                                message.destinationEgressLocation = $root.google.cloud.networkmanagement.v1beta1.ProbingDetails.EdgeLocation.fromObject(object.destinationEgressLocation);
+                            }
                             return message;
                         };
     
@@ -12123,6 +12147,7 @@
                                 object.successfulProbeCount = 0;
                                 object.endpointInfo = null;
                                 object.probingLatency = null;
+                                object.destinationEgressLocation = null;
                             }
                             if (message.result != null && message.hasOwnProperty("result"))
                                 object.result = options.enums === String ? $root.google.cloud.networkmanagement.v1beta1.ProbingDetails.ProbingResult[message.result] : message.result;
@@ -12140,6 +12165,8 @@
                                 object.endpointInfo = $root.google.cloud.networkmanagement.v1beta1.EndpointInfo.toObject(message.endpointInfo, options);
                             if (message.probingLatency != null && message.hasOwnProperty("probingLatency"))
                                 object.probingLatency = $root.google.cloud.networkmanagement.v1beta1.LatencyDistribution.toObject(message.probingLatency, options);
+                            if (message.destinationEgressLocation != null && message.hasOwnProperty("destinationEgressLocation"))
+                                object.destinationEgressLocation = $root.google.cloud.networkmanagement.v1beta1.ProbingDetails.EdgeLocation.toObject(message.destinationEgressLocation, options);
                             return object;
                         };
     
@@ -12188,6 +12215,193 @@
                             values[valuesById[1] = "PERMISSION_DENIED"] = 1;
                             values[valuesById[2] = "NO_SOURCE_LOCATION"] = 2;
                             return values;
+                        })();
+    
+                        ProbingDetails.EdgeLocation = (function() {
+    
+                            /**
+                             * Properties of an EdgeLocation.
+                             * @memberof google.cloud.networkmanagement.v1beta1.ProbingDetails
+                             * @interface IEdgeLocation
+                             * @property {string|null} [metropolitanArea] EdgeLocation metropolitanArea
+                             */
+    
+                            /**
+                             * Constructs a new EdgeLocation.
+                             * @memberof google.cloud.networkmanagement.v1beta1.ProbingDetails
+                             * @classdesc Represents an EdgeLocation.
+                             * @implements IEdgeLocation
+                             * @constructor
+                             * @param {google.cloud.networkmanagement.v1beta1.ProbingDetails.IEdgeLocation=} [properties] Properties to set
+                             */
+                            function EdgeLocation(properties) {
+                                if (properties)
+                                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                        if (properties[keys[i]] != null)
+                                            this[keys[i]] = properties[keys[i]];
+                            }
+    
+                            /**
+                             * EdgeLocation metropolitanArea.
+                             * @member {string} metropolitanArea
+                             * @memberof google.cloud.networkmanagement.v1beta1.ProbingDetails.EdgeLocation
+                             * @instance
+                             */
+                            EdgeLocation.prototype.metropolitanArea = "";
+    
+                            /**
+                             * Creates a new EdgeLocation instance using the specified properties.
+                             * @function create
+                             * @memberof google.cloud.networkmanagement.v1beta1.ProbingDetails.EdgeLocation
+                             * @static
+                             * @param {google.cloud.networkmanagement.v1beta1.ProbingDetails.IEdgeLocation=} [properties] Properties to set
+                             * @returns {google.cloud.networkmanagement.v1beta1.ProbingDetails.EdgeLocation} EdgeLocation instance
+                             */
+                            EdgeLocation.create = function create(properties) {
+                                return new EdgeLocation(properties);
+                            };
+    
+                            /**
+                             * Encodes the specified EdgeLocation message. Does not implicitly {@link google.cloud.networkmanagement.v1beta1.ProbingDetails.EdgeLocation.verify|verify} messages.
+                             * @function encode
+                             * @memberof google.cloud.networkmanagement.v1beta1.ProbingDetails.EdgeLocation
+                             * @static
+                             * @param {google.cloud.networkmanagement.v1beta1.ProbingDetails.IEdgeLocation} message EdgeLocation message or plain object to encode
+                             * @param {$protobuf.Writer} [writer] Writer to encode to
+                             * @returns {$protobuf.Writer} Writer
+                             */
+                            EdgeLocation.encode = function encode(message, writer) {
+                                if (!writer)
+                                    writer = $Writer.create();
+                                if (message.metropolitanArea != null && Object.hasOwnProperty.call(message, "metropolitanArea"))
+                                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.metropolitanArea);
+                                return writer;
+                            };
+    
+                            /**
+                             * Encodes the specified EdgeLocation message, length delimited. Does not implicitly {@link google.cloud.networkmanagement.v1beta1.ProbingDetails.EdgeLocation.verify|verify} messages.
+                             * @function encodeDelimited
+                             * @memberof google.cloud.networkmanagement.v1beta1.ProbingDetails.EdgeLocation
+                             * @static
+                             * @param {google.cloud.networkmanagement.v1beta1.ProbingDetails.IEdgeLocation} message EdgeLocation message or plain object to encode
+                             * @param {$protobuf.Writer} [writer] Writer to encode to
+                             * @returns {$protobuf.Writer} Writer
+                             */
+                            EdgeLocation.encodeDelimited = function encodeDelimited(message, writer) {
+                                return this.encode(message, writer).ldelim();
+                            };
+    
+                            /**
+                             * Decodes an EdgeLocation message from the specified reader or buffer.
+                             * @function decode
+                             * @memberof google.cloud.networkmanagement.v1beta1.ProbingDetails.EdgeLocation
+                             * @static
+                             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                             * @param {number} [length] Message length if known beforehand
+                             * @returns {google.cloud.networkmanagement.v1beta1.ProbingDetails.EdgeLocation} EdgeLocation
+                             * @throws {Error} If the payload is not a reader or valid buffer
+                             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                             */
+                            EdgeLocation.decode = function decode(reader, length) {
+                                if (!(reader instanceof $Reader))
+                                    reader = $Reader.create(reader);
+                                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.networkmanagement.v1beta1.ProbingDetails.EdgeLocation();
+                                while (reader.pos < end) {
+                                    var tag = reader.uint32();
+                                    switch (tag >>> 3) {
+                                    case 1:
+                                        message.metropolitanArea = reader.string();
+                                        break;
+                                    default:
+                                        reader.skipType(tag & 7);
+                                        break;
+                                    }
+                                }
+                                return message;
+                            };
+    
+                            /**
+                             * Decodes an EdgeLocation message from the specified reader or buffer, length delimited.
+                             * @function decodeDelimited
+                             * @memberof google.cloud.networkmanagement.v1beta1.ProbingDetails.EdgeLocation
+                             * @static
+                             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                             * @returns {google.cloud.networkmanagement.v1beta1.ProbingDetails.EdgeLocation} EdgeLocation
+                             * @throws {Error} If the payload is not a reader or valid buffer
+                             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                             */
+                            EdgeLocation.decodeDelimited = function decodeDelimited(reader) {
+                                if (!(reader instanceof $Reader))
+                                    reader = new $Reader(reader);
+                                return this.decode(reader, reader.uint32());
+                            };
+    
+                            /**
+                             * Verifies an EdgeLocation message.
+                             * @function verify
+                             * @memberof google.cloud.networkmanagement.v1beta1.ProbingDetails.EdgeLocation
+                             * @static
+                             * @param {Object.<string,*>} message Plain object to verify
+                             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                             */
+                            EdgeLocation.verify = function verify(message) {
+                                if (typeof message !== "object" || message === null)
+                                    return "object expected";
+                                if (message.metropolitanArea != null && message.hasOwnProperty("metropolitanArea"))
+                                    if (!$util.isString(message.metropolitanArea))
+                                        return "metropolitanArea: string expected";
+                                return null;
+                            };
+    
+                            /**
+                             * Creates an EdgeLocation message from a plain object. Also converts values to their respective internal types.
+                             * @function fromObject
+                             * @memberof google.cloud.networkmanagement.v1beta1.ProbingDetails.EdgeLocation
+                             * @static
+                             * @param {Object.<string,*>} object Plain object
+                             * @returns {google.cloud.networkmanagement.v1beta1.ProbingDetails.EdgeLocation} EdgeLocation
+                             */
+                            EdgeLocation.fromObject = function fromObject(object) {
+                                if (object instanceof $root.google.cloud.networkmanagement.v1beta1.ProbingDetails.EdgeLocation)
+                                    return object;
+                                var message = new $root.google.cloud.networkmanagement.v1beta1.ProbingDetails.EdgeLocation();
+                                if (object.metropolitanArea != null)
+                                    message.metropolitanArea = String(object.metropolitanArea);
+                                return message;
+                            };
+    
+                            /**
+                             * Creates a plain object from an EdgeLocation message. Also converts values to other types if specified.
+                             * @function toObject
+                             * @memberof google.cloud.networkmanagement.v1beta1.ProbingDetails.EdgeLocation
+                             * @static
+                             * @param {google.cloud.networkmanagement.v1beta1.ProbingDetails.EdgeLocation} message EdgeLocation
+                             * @param {$protobuf.IConversionOptions} [options] Conversion options
+                             * @returns {Object.<string,*>} Plain object
+                             */
+                            EdgeLocation.toObject = function toObject(message, options) {
+                                if (!options)
+                                    options = {};
+                                var object = {};
+                                if (options.defaults)
+                                    object.metropolitanArea = "";
+                                if (message.metropolitanArea != null && message.hasOwnProperty("metropolitanArea"))
+                                    object.metropolitanArea = message.metropolitanArea;
+                                return object;
+                            };
+    
+                            /**
+                             * Converts this EdgeLocation to JSON.
+                             * @function toJSON
+                             * @memberof google.cloud.networkmanagement.v1beta1.ProbingDetails.EdgeLocation
+                             * @instance
+                             * @returns {Object.<string,*>} JSON object
+                             */
+                            EdgeLocation.prototype.toJSON = function toJSON() {
+                                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                            };
+    
+                            return EdgeLocation;
                         })();
     
                         return ProbingDetails;
@@ -17786,6 +18000,7 @@
                                 case 12:
                                 case 13:
                                 case 14:
+                                case 15:
                                     break;
                                 }
                             if (message.resourceUri != null && message.hasOwnProperty("resourceUri"))
@@ -17874,6 +18089,10 @@
                             case 14:
                                 message.cause = 14;
                                 break;
+                            case "UNSUPPORTED":
+                            case 15:
+                                message.cause = 15;
+                                break;
                             }
                             if (object.resourceUri != null)
                                 message.resourceUri = String(object.resourceUri);
@@ -17948,6 +18167,7 @@
                          * @property {number} MISMATCHED_SOURCE_NETWORK=12 MISMATCHED_SOURCE_NETWORK value
                          * @property {number} DESTINATION_ENDPOINT_NOT_FOUND=13 DESTINATION_ENDPOINT_NOT_FOUND value
                          * @property {number} MISMATCHED_DESTINATION_NETWORK=14 MISMATCHED_DESTINATION_NETWORK value
+                         * @property {number} UNSUPPORTED=15 UNSUPPORTED value
                          */
                         AbortInfo.Cause = (function() {
                             var valuesById = {}, values = Object.create(valuesById);
@@ -17966,6 +18186,7 @@
                             values[valuesById[12] = "MISMATCHED_SOURCE_NETWORK"] = 12;
                             values[valuesById[13] = "DESTINATION_ENDPOINT_NOT_FOUND"] = 13;
                             values[valuesById[14] = "MISMATCHED_DESTINATION_NETWORK"] = 14;
+                            values[valuesById[15] = "UNSUPPORTED"] = 15;
                             return values;
                         })();
     

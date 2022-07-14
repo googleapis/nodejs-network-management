@@ -4392,6 +4392,9 @@ export namespace google {
 
                     /** ProbingDetails probingLatency */
                     probingLatency?: (google.cloud.networkmanagement.v1beta1.ILatencyDistribution|null);
+
+                    /** ProbingDetails destinationEgressLocation */
+                    destinationEgressLocation?: (google.cloud.networkmanagement.v1beta1.ProbingDetails.IEdgeLocation|null);
                 }
 
                 /** Represents a ProbingDetails. */
@@ -4426,6 +4429,9 @@ export namespace google {
 
                     /** ProbingDetails probingLatency. */
                     public probingLatency?: (google.cloud.networkmanagement.v1beta1.ILatencyDistribution|null);
+
+                    /** ProbingDetails destinationEgressLocation. */
+                    public destinationEgressLocation?: (google.cloud.networkmanagement.v1beta1.ProbingDetails.IEdgeLocation|null);
 
                     /**
                      * Creates a new ProbingDetails instance using the specified properties.
@@ -4514,6 +4520,96 @@ export namespace google {
                         PROBING_ABORT_CAUSE_UNSPECIFIED = 0,
                         PERMISSION_DENIED = 1,
                         NO_SOURCE_LOCATION = 2
+                    }
+
+                    /** Properties of an EdgeLocation. */
+                    interface IEdgeLocation {
+
+                        /** EdgeLocation metropolitanArea */
+                        metropolitanArea?: (string|null);
+                    }
+
+                    /** Represents an EdgeLocation. */
+                    class EdgeLocation implements IEdgeLocation {
+
+                        /**
+                         * Constructs a new EdgeLocation.
+                         * @param [properties] Properties to set
+                         */
+                        constructor(properties?: google.cloud.networkmanagement.v1beta1.ProbingDetails.IEdgeLocation);
+
+                        /** EdgeLocation metropolitanArea. */
+                        public metropolitanArea: string;
+
+                        /**
+                         * Creates a new EdgeLocation instance using the specified properties.
+                         * @param [properties] Properties to set
+                         * @returns EdgeLocation instance
+                         */
+                        public static create(properties?: google.cloud.networkmanagement.v1beta1.ProbingDetails.IEdgeLocation): google.cloud.networkmanagement.v1beta1.ProbingDetails.EdgeLocation;
+
+                        /**
+                         * Encodes the specified EdgeLocation message. Does not implicitly {@link google.cloud.networkmanagement.v1beta1.ProbingDetails.EdgeLocation.verify|verify} messages.
+                         * @param message EdgeLocation message or plain object to encode
+                         * @param [writer] Writer to encode to
+                         * @returns Writer
+                         */
+                        public static encode(message: google.cloud.networkmanagement.v1beta1.ProbingDetails.IEdgeLocation, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                        /**
+                         * Encodes the specified EdgeLocation message, length delimited. Does not implicitly {@link google.cloud.networkmanagement.v1beta1.ProbingDetails.EdgeLocation.verify|verify} messages.
+                         * @param message EdgeLocation message or plain object to encode
+                         * @param [writer] Writer to encode to
+                         * @returns Writer
+                         */
+                        public static encodeDelimited(message: google.cloud.networkmanagement.v1beta1.ProbingDetails.IEdgeLocation, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                        /**
+                         * Decodes an EdgeLocation message from the specified reader or buffer.
+                         * @param reader Reader or buffer to decode from
+                         * @param [length] Message length if known beforehand
+                         * @returns EdgeLocation
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.networkmanagement.v1beta1.ProbingDetails.EdgeLocation;
+
+                        /**
+                         * Decodes an EdgeLocation message from the specified reader or buffer, length delimited.
+                         * @param reader Reader or buffer to decode from
+                         * @returns EdgeLocation
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.networkmanagement.v1beta1.ProbingDetails.EdgeLocation;
+
+                        /**
+                         * Verifies an EdgeLocation message.
+                         * @param message Plain object to verify
+                         * @returns `null` if valid, otherwise the reason why it is not
+                         */
+                        public static verify(message: { [k: string]: any }): (string|null);
+
+                        /**
+                         * Creates an EdgeLocation message from a plain object. Also converts values to their respective internal types.
+                         * @param object Plain object
+                         * @returns EdgeLocation
+                         */
+                        public static fromObject(object: { [k: string]: any }): google.cloud.networkmanagement.v1beta1.ProbingDetails.EdgeLocation;
+
+                        /**
+                         * Creates a plain object from an EdgeLocation message. Also converts values to other types if specified.
+                         * @param message EdgeLocation
+                         * @param [options] Conversion options
+                         * @returns Plain object
+                         */
+                        public static toObject(message: google.cloud.networkmanagement.v1beta1.ProbingDetails.EdgeLocation, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                        /**
+                         * Converts this EdgeLocation to JSON.
+                         * @returns JSON object
+                         */
+                        public toJSON(): { [k: string]: any };
                     }
                 }
 
@@ -6525,7 +6621,8 @@ export namespace google {
                         SOURCE_ENDPOINT_NOT_FOUND = 11,
                         MISMATCHED_SOURCE_NETWORK = 12,
                         DESTINATION_ENDPOINT_NOT_FOUND = 13,
-                        MISMATCHED_DESTINATION_NETWORK = 14
+                        MISMATCHED_DESTINATION_NETWORK = 14,
+                        UNSUPPORTED = 15
                     }
                 }
 

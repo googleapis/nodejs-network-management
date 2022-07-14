@@ -1420,6 +1420,10 @@
                         "probingLatency": {
                           "type": "LatencyDistribution",
                           "id": 8
+                        },
+                        "destinationEgressLocation": {
+                          "type": "EdgeLocation",
+                          "id": 9
                         }
                       },
                       "nested": {
@@ -1437,6 +1441,14 @@
                             "PROBING_ABORT_CAUSE_UNSPECIFIED": 0,
                             "PERMISSION_DENIED": 1,
                             "NO_SOURCE_LOCATION": 2
+                          }
+                        },
+                        "EdgeLocation": {
+                          "fields": {
+                            "metropolitanArea": {
+                              "type": "string",
+                              "id": 1
+                            }
                           }
                         }
                       }
@@ -2073,7 +2085,8 @@
                             "SOURCE_ENDPOINT_NOT_FOUND": 11,
                             "MISMATCHED_SOURCE_NETWORK": 12,
                             "DESTINATION_ENDPOINT_NOT_FOUND": 13,
-                            "MISMATCHED_DESTINATION_NETWORK": 14
+                            "MISMATCHED_DESTINATION_NETWORK": 14,
+                            "UNSUPPORTED": 15
                           }
                         }
                       }
