@@ -10618,6 +10618,7 @@
                          * @property {string|null} [instance] Endpoint instance
                          * @property {string|null} [gkeMasterCluster] Endpoint gkeMasterCluster
                          * @property {string|null} [cloudSqlInstance] Endpoint cloudSqlInstance
+                         * @property {google.cloud.networkmanagement.v1beta1.Endpoint.ICloudFunctionEndpoint|null} [cloudFunction] Endpoint cloudFunction
                          * @property {string|null} [network] Endpoint network
                          * @property {google.cloud.networkmanagement.v1beta1.Endpoint.NetworkType|null} [networkType] Endpoint networkType
                          * @property {string|null} [projectId] Endpoint projectId
@@ -10677,6 +10678,14 @@
                          * @instance
                          */
                         Endpoint.prototype.cloudSqlInstance = "";
+    
+                        /**
+                         * Endpoint cloudFunction.
+                         * @member {google.cloud.networkmanagement.v1beta1.Endpoint.ICloudFunctionEndpoint|null|undefined} cloudFunction
+                         * @memberof google.cloud.networkmanagement.v1beta1.Endpoint
+                         * @instance
+                         */
+                        Endpoint.prototype.cloudFunction = null;
     
                         /**
                          * Endpoint network.
@@ -10742,6 +10751,8 @@
                                 writer.uint32(/* id 7, wireType 2 =*/58).string(message.gkeMasterCluster);
                             if (message.cloudSqlInstance != null && Object.hasOwnProperty.call(message, "cloudSqlInstance"))
                                 writer.uint32(/* id 8, wireType 2 =*/66).string(message.cloudSqlInstance);
+                            if (message.cloudFunction != null && Object.hasOwnProperty.call(message, "cloudFunction"))
+                                $root.google.cloud.networkmanagement.v1beta1.Endpoint.CloudFunctionEndpoint.encode(message.cloudFunction, writer.uint32(/* id 10, wireType 2 =*/82).fork()).ldelim();
                             return writer;
                         };
     
@@ -10790,6 +10801,9 @@
                                     break;
                                 case 8:
                                     message.cloudSqlInstance = reader.string();
+                                    break;
+                                case 10:
+                                    message.cloudFunction = $root.google.cloud.networkmanagement.v1beta1.Endpoint.CloudFunctionEndpoint.decode(reader, reader.uint32());
                                     break;
                                 case 4:
                                     message.network = reader.string();
@@ -10850,6 +10864,11 @@
                             if (message.cloudSqlInstance != null && message.hasOwnProperty("cloudSqlInstance"))
                                 if (!$util.isString(message.cloudSqlInstance))
                                     return "cloudSqlInstance: string expected";
+                            if (message.cloudFunction != null && message.hasOwnProperty("cloudFunction")) {
+                                var error = $root.google.cloud.networkmanagement.v1beta1.Endpoint.CloudFunctionEndpoint.verify(message.cloudFunction);
+                                if (error)
+                                    return "cloudFunction." + error;
+                            }
                             if (message.network != null && message.hasOwnProperty("network"))
                                 if (!$util.isString(message.network))
                                     return "network: string expected";
@@ -10890,6 +10909,11 @@
                                 message.gkeMasterCluster = String(object.gkeMasterCluster);
                             if (object.cloudSqlInstance != null)
                                 message.cloudSqlInstance = String(object.cloudSqlInstance);
+                            if (object.cloudFunction != null) {
+                                if (typeof object.cloudFunction !== "object")
+                                    throw TypeError(".google.cloud.networkmanagement.v1beta1.Endpoint.cloudFunction: object expected");
+                                message.cloudFunction = $root.google.cloud.networkmanagement.v1beta1.Endpoint.CloudFunctionEndpoint.fromObject(object.cloudFunction);
+                            }
                             if (object.network != null)
                                 message.network = String(object.network);
                             switch (object.networkType) {
@@ -10933,6 +10957,7 @@
                                 object.projectId = "";
                                 object.gkeMasterCluster = "";
                                 object.cloudSqlInstance = "";
+                                object.cloudFunction = null;
                             }
                             if (message.ipAddress != null && message.hasOwnProperty("ipAddress"))
                                 object.ipAddress = message.ipAddress;
@@ -10950,6 +10975,8 @@
                                 object.gkeMasterCluster = message.gkeMasterCluster;
                             if (message.cloudSqlInstance != null && message.hasOwnProperty("cloudSqlInstance"))
                                 object.cloudSqlInstance = message.cloudSqlInstance;
+                            if (message.cloudFunction != null && message.hasOwnProperty("cloudFunction"))
+                                object.cloudFunction = $root.google.cloud.networkmanagement.v1beta1.Endpoint.CloudFunctionEndpoint.toObject(message.cloudFunction, options);
                             return object;
                         };
     
@@ -10978,6 +11005,193 @@
                             values[valuesById[1] = "GCP_NETWORK"] = 1;
                             values[valuesById[2] = "NON_GCP_NETWORK"] = 2;
                             return values;
+                        })();
+    
+                        Endpoint.CloudFunctionEndpoint = (function() {
+    
+                            /**
+                             * Properties of a CloudFunctionEndpoint.
+                             * @memberof google.cloud.networkmanagement.v1beta1.Endpoint
+                             * @interface ICloudFunctionEndpoint
+                             * @property {string|null} [uri] CloudFunctionEndpoint uri
+                             */
+    
+                            /**
+                             * Constructs a new CloudFunctionEndpoint.
+                             * @memberof google.cloud.networkmanagement.v1beta1.Endpoint
+                             * @classdesc Represents a CloudFunctionEndpoint.
+                             * @implements ICloudFunctionEndpoint
+                             * @constructor
+                             * @param {google.cloud.networkmanagement.v1beta1.Endpoint.ICloudFunctionEndpoint=} [properties] Properties to set
+                             */
+                            function CloudFunctionEndpoint(properties) {
+                                if (properties)
+                                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                        if (properties[keys[i]] != null)
+                                            this[keys[i]] = properties[keys[i]];
+                            }
+    
+                            /**
+                             * CloudFunctionEndpoint uri.
+                             * @member {string} uri
+                             * @memberof google.cloud.networkmanagement.v1beta1.Endpoint.CloudFunctionEndpoint
+                             * @instance
+                             */
+                            CloudFunctionEndpoint.prototype.uri = "";
+    
+                            /**
+                             * Creates a new CloudFunctionEndpoint instance using the specified properties.
+                             * @function create
+                             * @memberof google.cloud.networkmanagement.v1beta1.Endpoint.CloudFunctionEndpoint
+                             * @static
+                             * @param {google.cloud.networkmanagement.v1beta1.Endpoint.ICloudFunctionEndpoint=} [properties] Properties to set
+                             * @returns {google.cloud.networkmanagement.v1beta1.Endpoint.CloudFunctionEndpoint} CloudFunctionEndpoint instance
+                             */
+                            CloudFunctionEndpoint.create = function create(properties) {
+                                return new CloudFunctionEndpoint(properties);
+                            };
+    
+                            /**
+                             * Encodes the specified CloudFunctionEndpoint message. Does not implicitly {@link google.cloud.networkmanagement.v1beta1.Endpoint.CloudFunctionEndpoint.verify|verify} messages.
+                             * @function encode
+                             * @memberof google.cloud.networkmanagement.v1beta1.Endpoint.CloudFunctionEndpoint
+                             * @static
+                             * @param {google.cloud.networkmanagement.v1beta1.Endpoint.ICloudFunctionEndpoint} message CloudFunctionEndpoint message or plain object to encode
+                             * @param {$protobuf.Writer} [writer] Writer to encode to
+                             * @returns {$protobuf.Writer} Writer
+                             */
+                            CloudFunctionEndpoint.encode = function encode(message, writer) {
+                                if (!writer)
+                                    writer = $Writer.create();
+                                if (message.uri != null && Object.hasOwnProperty.call(message, "uri"))
+                                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.uri);
+                                return writer;
+                            };
+    
+                            /**
+                             * Encodes the specified CloudFunctionEndpoint message, length delimited. Does not implicitly {@link google.cloud.networkmanagement.v1beta1.Endpoint.CloudFunctionEndpoint.verify|verify} messages.
+                             * @function encodeDelimited
+                             * @memberof google.cloud.networkmanagement.v1beta1.Endpoint.CloudFunctionEndpoint
+                             * @static
+                             * @param {google.cloud.networkmanagement.v1beta1.Endpoint.ICloudFunctionEndpoint} message CloudFunctionEndpoint message or plain object to encode
+                             * @param {$protobuf.Writer} [writer] Writer to encode to
+                             * @returns {$protobuf.Writer} Writer
+                             */
+                            CloudFunctionEndpoint.encodeDelimited = function encodeDelimited(message, writer) {
+                                return this.encode(message, writer).ldelim();
+                            };
+    
+                            /**
+                             * Decodes a CloudFunctionEndpoint message from the specified reader or buffer.
+                             * @function decode
+                             * @memberof google.cloud.networkmanagement.v1beta1.Endpoint.CloudFunctionEndpoint
+                             * @static
+                             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                             * @param {number} [length] Message length if known beforehand
+                             * @returns {google.cloud.networkmanagement.v1beta1.Endpoint.CloudFunctionEndpoint} CloudFunctionEndpoint
+                             * @throws {Error} If the payload is not a reader or valid buffer
+                             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                             */
+                            CloudFunctionEndpoint.decode = function decode(reader, length) {
+                                if (!(reader instanceof $Reader))
+                                    reader = $Reader.create(reader);
+                                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.networkmanagement.v1beta1.Endpoint.CloudFunctionEndpoint();
+                                while (reader.pos < end) {
+                                    var tag = reader.uint32();
+                                    switch (tag >>> 3) {
+                                    case 1:
+                                        message.uri = reader.string();
+                                        break;
+                                    default:
+                                        reader.skipType(tag & 7);
+                                        break;
+                                    }
+                                }
+                                return message;
+                            };
+    
+                            /**
+                             * Decodes a CloudFunctionEndpoint message from the specified reader or buffer, length delimited.
+                             * @function decodeDelimited
+                             * @memberof google.cloud.networkmanagement.v1beta1.Endpoint.CloudFunctionEndpoint
+                             * @static
+                             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                             * @returns {google.cloud.networkmanagement.v1beta1.Endpoint.CloudFunctionEndpoint} CloudFunctionEndpoint
+                             * @throws {Error} If the payload is not a reader or valid buffer
+                             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                             */
+                            CloudFunctionEndpoint.decodeDelimited = function decodeDelimited(reader) {
+                                if (!(reader instanceof $Reader))
+                                    reader = new $Reader(reader);
+                                return this.decode(reader, reader.uint32());
+                            };
+    
+                            /**
+                             * Verifies a CloudFunctionEndpoint message.
+                             * @function verify
+                             * @memberof google.cloud.networkmanagement.v1beta1.Endpoint.CloudFunctionEndpoint
+                             * @static
+                             * @param {Object.<string,*>} message Plain object to verify
+                             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                             */
+                            CloudFunctionEndpoint.verify = function verify(message) {
+                                if (typeof message !== "object" || message === null)
+                                    return "object expected";
+                                if (message.uri != null && message.hasOwnProperty("uri"))
+                                    if (!$util.isString(message.uri))
+                                        return "uri: string expected";
+                                return null;
+                            };
+    
+                            /**
+                             * Creates a CloudFunctionEndpoint message from a plain object. Also converts values to their respective internal types.
+                             * @function fromObject
+                             * @memberof google.cloud.networkmanagement.v1beta1.Endpoint.CloudFunctionEndpoint
+                             * @static
+                             * @param {Object.<string,*>} object Plain object
+                             * @returns {google.cloud.networkmanagement.v1beta1.Endpoint.CloudFunctionEndpoint} CloudFunctionEndpoint
+                             */
+                            CloudFunctionEndpoint.fromObject = function fromObject(object) {
+                                if (object instanceof $root.google.cloud.networkmanagement.v1beta1.Endpoint.CloudFunctionEndpoint)
+                                    return object;
+                                var message = new $root.google.cloud.networkmanagement.v1beta1.Endpoint.CloudFunctionEndpoint();
+                                if (object.uri != null)
+                                    message.uri = String(object.uri);
+                                return message;
+                            };
+    
+                            /**
+                             * Creates a plain object from a CloudFunctionEndpoint message. Also converts values to other types if specified.
+                             * @function toObject
+                             * @memberof google.cloud.networkmanagement.v1beta1.Endpoint.CloudFunctionEndpoint
+                             * @static
+                             * @param {google.cloud.networkmanagement.v1beta1.Endpoint.CloudFunctionEndpoint} message CloudFunctionEndpoint
+                             * @param {$protobuf.IConversionOptions} [options] Conversion options
+                             * @returns {Object.<string,*>} Plain object
+                             */
+                            CloudFunctionEndpoint.toObject = function toObject(message, options) {
+                                if (!options)
+                                    options = {};
+                                var object = {};
+                                if (options.defaults)
+                                    object.uri = "";
+                                if (message.uri != null && message.hasOwnProperty("uri"))
+                                    object.uri = message.uri;
+                                return object;
+                            };
+    
+                            /**
+                             * Converts this CloudFunctionEndpoint to JSON.
+                             * @function toJSON
+                             * @memberof google.cloud.networkmanagement.v1beta1.Endpoint.CloudFunctionEndpoint
+                             * @instance
+                             * @returns {Object.<string,*>} JSON object
+                             */
+                            CloudFunctionEndpoint.prototype.toJSON = function toJSON() {
+                                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                            };
+    
+                            return CloudFunctionEndpoint;
                         })();
     
                         return Endpoint;
@@ -12660,6 +12874,7 @@
                          * @property {google.cloud.networkmanagement.v1beta1.IForwardingRuleInfo|null} [forwardingRule] Step forwardingRule
                          * @property {google.cloud.networkmanagement.v1beta1.IVpnGatewayInfo|null} [vpnGateway] Step vpnGateway
                          * @property {google.cloud.networkmanagement.v1beta1.IVpnTunnelInfo|null} [vpnTunnel] Step vpnTunnel
+                         * @property {google.cloud.networkmanagement.v1beta1.IVpcConnectorInfo|null} [vpcConnector] Step vpcConnector
                          * @property {google.cloud.networkmanagement.v1beta1.IDeliverInfo|null} [deliver] Step deliver
                          * @property {google.cloud.networkmanagement.v1beta1.IForwardInfo|null} [forward] Step forward
                          * @property {google.cloud.networkmanagement.v1beta1.IAbortInfo|null} [abort] Step abort
@@ -12668,6 +12883,7 @@
                          * @property {google.cloud.networkmanagement.v1beta1.INetworkInfo|null} [network] Step network
                          * @property {google.cloud.networkmanagement.v1beta1.IGKEMasterInfo|null} [gkeMaster] Step gkeMaster
                          * @property {google.cloud.networkmanagement.v1beta1.ICloudSQLInstanceInfo|null} [cloudSqlInstance] Step cloudSqlInstance
+                         * @property {google.cloud.networkmanagement.v1beta1.ICloudFunctionInfo|null} [cloudFunction] Step cloudFunction
                          */
     
                         /**
@@ -12774,6 +12990,14 @@
                         Step.prototype.vpnTunnel = null;
     
                         /**
+                         * Step vpcConnector.
+                         * @member {google.cloud.networkmanagement.v1beta1.IVpcConnectorInfo|null|undefined} vpcConnector
+                         * @memberof google.cloud.networkmanagement.v1beta1.Step
+                         * @instance
+                         */
+                        Step.prototype.vpcConnector = null;
+    
+                        /**
                          * Step deliver.
                          * @member {google.cloud.networkmanagement.v1beta1.IDeliverInfo|null|undefined} deliver
                          * @memberof google.cloud.networkmanagement.v1beta1.Step
@@ -12837,17 +13061,25 @@
                          */
                         Step.prototype.cloudSqlInstance = null;
     
+                        /**
+                         * Step cloudFunction.
+                         * @member {google.cloud.networkmanagement.v1beta1.ICloudFunctionInfo|null|undefined} cloudFunction
+                         * @memberof google.cloud.networkmanagement.v1beta1.Step
+                         * @instance
+                         */
+                        Step.prototype.cloudFunction = null;
+    
                         // OneOf field names bound to virtual getters and setters
                         var $oneOfFields;
     
                         /**
                          * Step stepInfo.
-                         * @member {"instance"|"firewall"|"route"|"endpoint"|"forwardingRule"|"vpnGateway"|"vpnTunnel"|"deliver"|"forward"|"abort"|"drop"|"loadBalancer"|"network"|"gkeMaster"|"cloudSqlInstance"|undefined} stepInfo
+                         * @member {"instance"|"firewall"|"route"|"endpoint"|"forwardingRule"|"vpnGateway"|"vpnTunnel"|"vpcConnector"|"deliver"|"forward"|"abort"|"drop"|"loadBalancer"|"network"|"gkeMaster"|"cloudSqlInstance"|"cloudFunction"|undefined} stepInfo
                          * @memberof google.cloud.networkmanagement.v1beta1.Step
                          * @instance
                          */
                         Object.defineProperty(Step.prototype, "stepInfo", {
-                            get: $util.oneOfGetter($oneOfFields = ["instance", "firewall", "route", "endpoint", "forwardingRule", "vpnGateway", "vpnTunnel", "deliver", "forward", "abort", "drop", "loadBalancer", "network", "gkeMaster", "cloudSqlInstance"]),
+                            get: $util.oneOfGetter($oneOfFields = ["instance", "firewall", "route", "endpoint", "forwardingRule", "vpnGateway", "vpnTunnel", "vpcConnector", "deliver", "forward", "abort", "drop", "loadBalancer", "network", "gkeMaster", "cloudSqlInstance", "cloudFunction"]),
                             set: $util.oneOfSetter($oneOfFields)
                         });
     
@@ -12913,6 +13145,10 @@
                                 $root.google.cloud.networkmanagement.v1beta1.GKEMasterInfo.encode(message.gkeMaster, writer.uint32(/* id 18, wireType 2 =*/146).fork()).ldelim();
                             if (message.cloudSqlInstance != null && Object.hasOwnProperty.call(message, "cloudSqlInstance"))
                                 $root.google.cloud.networkmanagement.v1beta1.CloudSQLInstanceInfo.encode(message.cloudSqlInstance, writer.uint32(/* id 19, wireType 2 =*/154).fork()).ldelim();
+                            if (message.cloudFunction != null && Object.hasOwnProperty.call(message, "cloudFunction"))
+                                $root.google.cloud.networkmanagement.v1beta1.CloudFunctionInfo.encode(message.cloudFunction, writer.uint32(/* id 20, wireType 2 =*/162).fork()).ldelim();
+                            if (message.vpcConnector != null && Object.hasOwnProperty.call(message, "vpcConnector"))
+                                $root.google.cloud.networkmanagement.v1beta1.VpcConnectorInfo.encode(message.vpcConnector, writer.uint32(/* id 21, wireType 2 =*/170).fork()).ldelim();
                             return writer;
                         };
     
@@ -12980,6 +13216,9 @@
                                 case 11:
                                     message.vpnTunnel = $root.google.cloud.networkmanagement.v1beta1.VpnTunnelInfo.decode(reader, reader.uint32());
                                     break;
+                                case 21:
+                                    message.vpcConnector = $root.google.cloud.networkmanagement.v1beta1.VpcConnectorInfo.decode(reader, reader.uint32());
+                                    break;
                                 case 12:
                                     message.deliver = $root.google.cloud.networkmanagement.v1beta1.DeliverInfo.decode(reader, reader.uint32());
                                     break;
@@ -13003,6 +13242,9 @@
                                     break;
                                 case 19:
                                     message.cloudSqlInstance = $root.google.cloud.networkmanagement.v1beta1.CloudSQLInstanceInfo.decode(reader, reader.uint32());
+                                    break;
+                                case 20:
+                                    message.cloudFunction = $root.google.cloud.networkmanagement.v1beta1.CloudFunctionInfo.decode(reader, reader.uint32());
                                     break;
                                 default:
                                     reader.skipType(tag & 7);
@@ -13053,6 +13295,7 @@
                                 case 3:
                                 case 21:
                                 case 22:
+                                case 23:
                                 case 4:
                                 case 5:
                                 case 6:
@@ -13063,6 +13306,7 @@
                                 case 11:
                                 case 12:
                                 case 13:
+                                case 24:
                                 case 14:
                                 case 15:
                                 case 16:
@@ -13146,6 +13390,16 @@
                                         return "vpnTunnel." + error;
                                 }
                             }
+                            if (message.vpcConnector != null && message.hasOwnProperty("vpcConnector")) {
+                                if (properties.stepInfo === 1)
+                                    return "stepInfo: multiple values";
+                                properties.stepInfo = 1;
+                                {
+                                    var error = $root.google.cloud.networkmanagement.v1beta1.VpcConnectorInfo.verify(message.vpcConnector);
+                                    if (error)
+                                        return "vpcConnector." + error;
+                                }
+                            }
                             if (message.deliver != null && message.hasOwnProperty("deliver")) {
                                 if (properties.stepInfo === 1)
                                     return "stepInfo: multiple values";
@@ -13226,6 +13480,16 @@
                                         return "cloudSqlInstance." + error;
                                 }
                             }
+                            if (message.cloudFunction != null && message.hasOwnProperty("cloudFunction")) {
+                                if (properties.stepInfo === 1)
+                                    return "stepInfo: multiple values";
+                                properties.stepInfo = 1;
+                                {
+                                    var error = $root.google.cloud.networkmanagement.v1beta1.CloudFunctionInfo.verify(message.cloudFunction);
+                                    if (error)
+                                        return "cloudFunction." + error;
+                                }
+                            }
                             return null;
                         };
     
@@ -13268,6 +13532,10 @@
                             case 22:
                                 message.state = 22;
                                 break;
+                            case "START_FROM_CLOUD_FUNCTION":
+                            case 23:
+                                message.state = 23;
+                                break;
                             case "APPLY_INGRESS_FIREWALL_RULE":
                             case 4:
                                 message.state = 4;
@@ -13307,6 +13575,10 @@
                             case "ARRIVE_AT_VPN_TUNNEL":
                             case 13:
                                 message.state = 13;
+                                break;
+                            case "ARRIVE_AT_VPC_CONNECTOR":
+                            case 24:
+                                message.state = 24;
                                 break;
                             case "NAT":
                             case 14:
@@ -13376,6 +13648,11 @@
                                     throw TypeError(".google.cloud.networkmanagement.v1beta1.Step.vpnTunnel: object expected");
                                 message.vpnTunnel = $root.google.cloud.networkmanagement.v1beta1.VpnTunnelInfo.fromObject(object.vpnTunnel);
                             }
+                            if (object.vpcConnector != null) {
+                                if (typeof object.vpcConnector !== "object")
+                                    throw TypeError(".google.cloud.networkmanagement.v1beta1.Step.vpcConnector: object expected");
+                                message.vpcConnector = $root.google.cloud.networkmanagement.v1beta1.VpcConnectorInfo.fromObject(object.vpcConnector);
+                            }
                             if (object.deliver != null) {
                                 if (typeof object.deliver !== "object")
                                     throw TypeError(".google.cloud.networkmanagement.v1beta1.Step.deliver: object expected");
@@ -13415,6 +13692,11 @@
                                 if (typeof object.cloudSqlInstance !== "object")
                                     throw TypeError(".google.cloud.networkmanagement.v1beta1.Step.cloudSqlInstance: object expected");
                                 message.cloudSqlInstance = $root.google.cloud.networkmanagement.v1beta1.CloudSQLInstanceInfo.fromObject(object.cloudSqlInstance);
+                            }
+                            if (object.cloudFunction != null) {
+                                if (typeof object.cloudFunction !== "object")
+                                    throw TypeError(".google.cloud.networkmanagement.v1beta1.Step.cloudFunction: object expected");
+                                message.cloudFunction = $root.google.cloud.networkmanagement.v1beta1.CloudFunctionInfo.fromObject(object.cloudFunction);
                             }
                             return message;
                         };
@@ -13521,6 +13803,16 @@
                                 if (options.oneofs)
                                     object.stepInfo = "cloudSqlInstance";
                             }
+                            if (message.cloudFunction != null && message.hasOwnProperty("cloudFunction")) {
+                                object.cloudFunction = $root.google.cloud.networkmanagement.v1beta1.CloudFunctionInfo.toObject(message.cloudFunction, options);
+                                if (options.oneofs)
+                                    object.stepInfo = "cloudFunction";
+                            }
+                            if (message.vpcConnector != null && message.hasOwnProperty("vpcConnector")) {
+                                object.vpcConnector = $root.google.cloud.networkmanagement.v1beta1.VpcConnectorInfo.toObject(message.vpcConnector, options);
+                                if (options.oneofs)
+                                    object.stepInfo = "vpcConnector";
+                            }
                             return object;
                         };
     
@@ -13545,6 +13837,7 @@
                          * @property {number} START_FROM_PRIVATE_NETWORK=3 START_FROM_PRIVATE_NETWORK value
                          * @property {number} START_FROM_GKE_MASTER=21 START_FROM_GKE_MASTER value
                          * @property {number} START_FROM_CLOUD_SQL_INSTANCE=22 START_FROM_CLOUD_SQL_INSTANCE value
+                         * @property {number} START_FROM_CLOUD_FUNCTION=23 START_FROM_CLOUD_FUNCTION value
                          * @property {number} APPLY_INGRESS_FIREWALL_RULE=4 APPLY_INGRESS_FIREWALL_RULE value
                          * @property {number} APPLY_EGRESS_FIREWALL_RULE=5 APPLY_EGRESS_FIREWALL_RULE value
                          * @property {number} APPLY_ROUTE=6 APPLY_ROUTE value
@@ -13555,6 +13848,7 @@
                          * @property {number} ARRIVE_AT_EXTERNAL_LOAD_BALANCER=11 ARRIVE_AT_EXTERNAL_LOAD_BALANCER value
                          * @property {number} ARRIVE_AT_VPN_GATEWAY=12 ARRIVE_AT_VPN_GATEWAY value
                          * @property {number} ARRIVE_AT_VPN_TUNNEL=13 ARRIVE_AT_VPN_TUNNEL value
+                         * @property {number} ARRIVE_AT_VPC_CONNECTOR=24 ARRIVE_AT_VPC_CONNECTOR value
                          * @property {number} NAT=14 NAT value
                          * @property {number} PROXY_CONNECTION=15 PROXY_CONNECTION value
                          * @property {number} DELIVER=16 DELIVER value
@@ -13571,6 +13865,7 @@
                             values[valuesById[3] = "START_FROM_PRIVATE_NETWORK"] = 3;
                             values[valuesById[21] = "START_FROM_GKE_MASTER"] = 21;
                             values[valuesById[22] = "START_FROM_CLOUD_SQL_INSTANCE"] = 22;
+                            values[valuesById[23] = "START_FROM_CLOUD_FUNCTION"] = 23;
                             values[valuesById[4] = "APPLY_INGRESS_FIREWALL_RULE"] = 4;
                             values[valuesById[5] = "APPLY_EGRESS_FIREWALL_RULE"] = 5;
                             values[valuesById[6] = "APPLY_ROUTE"] = 6;
@@ -13581,6 +13876,7 @@
                             values[valuesById[11] = "ARRIVE_AT_EXTERNAL_LOAD_BALANCER"] = 11;
                             values[valuesById[12] = "ARRIVE_AT_VPN_GATEWAY"] = 12;
                             values[valuesById[13] = "ARRIVE_AT_VPN_TUNNEL"] = 13;
+                            values[valuesById[24] = "ARRIVE_AT_VPC_CONNECTOR"] = 24;
                             values[valuesById[14] = "NAT"] = 14;
                             values[valuesById[15] = "PROXY_CONNECTION"] = 15;
                             values[valuesById[16] = "DELIVER"] = 16;
@@ -14492,6 +14788,7 @@
                                 case 1:
                                 case 2:
                                 case 3:
+                                case 4:
                                     break;
                                 }
                             return null;
@@ -14553,6 +14850,10 @@
                             case "IMPLIED_VPC_FIREWALL_RULE":
                             case 3:
                                 message.firewallRuleType = 3;
+                                break;
+                            case "SERVERLESS_VPC_ACCESS_MANAGED_FIREWALL_RULE":
+                            case 4:
+                                message.firewallRuleType = 4;
                                 break;
                             }
                             return message;
@@ -14633,6 +14934,7 @@
                          * @property {number} HIERARCHICAL_FIREWALL_POLICY_RULE=1 HIERARCHICAL_FIREWALL_POLICY_RULE value
                          * @property {number} VPC_FIREWALL_RULE=2 VPC_FIREWALL_RULE value
                          * @property {number} IMPLIED_VPC_FIREWALL_RULE=3 IMPLIED_VPC_FIREWALL_RULE value
+                         * @property {number} SERVERLESS_VPC_ACCESS_MANAGED_FIREWALL_RULE=4 SERVERLESS_VPC_ACCESS_MANAGED_FIREWALL_RULE value
                          */
                         FirewallInfo.FirewallRuleType = (function() {
                             var valuesById = {}, values = Object.create(valuesById);
@@ -14640,6 +14942,7 @@
                             values[valuesById[1] = "HIERARCHICAL_FIREWALL_POLICY_RULE"] = 1;
                             values[valuesById[2] = "VPC_FIREWALL_RULE"] = 2;
                             values[valuesById[3] = "IMPLIED_VPC_FIREWALL_RULE"] = 3;
+                            values[valuesById[4] = "SERVERLESS_VPC_ACCESS_MANAGED_FIREWALL_RULE"] = 4;
                             return values;
                         })();
     
@@ -17436,6 +17739,9 @@
                                 case 3:
                                 case 4:
                                 case 5:
+                                case 6:
+                                case 7:
+                                case 8:
                                     break;
                                 }
                             if (message.resourceUri != null && message.hasOwnProperty("resourceUri"))
@@ -17480,6 +17786,18 @@
                             case "CLOUD_SQL_INSTANCE":
                             case 5:
                                 message.target = 5;
+                                break;
+                            case "PSC_PUBLISHED_SERVICE":
+                            case 6:
+                                message.target = 6;
+                                break;
+                            case "PSC_GOOGLE_API":
+                            case 7:
+                                message.target = 7;
+                                break;
+                            case "PSC_VPC_SC":
+                            case 8:
+                                message.target = 8;
                                 break;
                             }
                             if (object.resourceUri != null)
@@ -17532,6 +17850,9 @@
                          * @property {number} GOOGLE_API=3 GOOGLE_API value
                          * @property {number} GKE_MASTER=4 GKE_MASTER value
                          * @property {number} CLOUD_SQL_INSTANCE=5 CLOUD_SQL_INSTANCE value
+                         * @property {number} PSC_PUBLISHED_SERVICE=6 PSC_PUBLISHED_SERVICE value
+                         * @property {number} PSC_GOOGLE_API=7 PSC_GOOGLE_API value
+                         * @property {number} PSC_VPC_SC=8 PSC_VPC_SC value
                          */
                         DeliverInfo.Target = (function() {
                             var valuesById = {}, values = Object.create(valuesById);
@@ -17541,6 +17862,9 @@
                             values[valuesById[3] = "GOOGLE_API"] = 3;
                             values[valuesById[4] = "GKE_MASTER"] = 4;
                             values[valuesById[5] = "CLOUD_SQL_INSTANCE"] = 5;
+                            values[valuesById[6] = "PSC_PUBLISHED_SERVICE"] = 6;
+                            values[valuesById[7] = "PSC_GOOGLE_API"] = 7;
+                            values[valuesById[8] = "PSC_VPC_SC"] = 8;
                             return values;
                         })();
     
@@ -18363,6 +18687,11 @@
                                 case 19:
                                 case 20:
                                 case 21:
+                                case 22:
+                                case 23:
+                                case 24:
+                                case 25:
+                                case 26:
                                     break;
                                 }
                             if (message.resourceUri != null && message.hasOwnProperty("resourceUri"))
@@ -18472,6 +18801,26 @@
                             case 21:
                                 message.cause = 21;
                                 break;
+                            case "CLOUD_FUNCTION_NOT_ACTIVE":
+                            case 22:
+                                message.cause = 22;
+                                break;
+                            case "VPC_CONNECTOR_NOT_SET":
+                            case 23:
+                                message.cause = 23;
+                                break;
+                            case "VPC_CONNECTOR_NOT_RUNNING":
+                            case 24:
+                                message.cause = 24;
+                                break;
+                            case "FORWARDING_RULE_REGION_MISMATCH":
+                            case 25:
+                                message.cause = 25;
+                                break;
+                            case "PSC_CONNECTION_NOT_ACCEPTED":
+                            case 26:
+                                message.cause = 26;
+                                break;
                             }
                             if (object.resourceUri != null)
                                 message.resourceUri = String(object.resourceUri);
@@ -18539,6 +18888,11 @@
                          * @property {number} DROPPED_INSIDE_CLOUD_SQL_SERVICE=19 DROPPED_INSIDE_CLOUD_SQL_SERVICE value
                          * @property {number} GOOGLE_MANAGED_SERVICE_NO_PEERING=20 GOOGLE_MANAGED_SERVICE_NO_PEERING value
                          * @property {number} CLOUD_SQL_INSTANCE_NO_IP_ADDRESS=21 CLOUD_SQL_INSTANCE_NO_IP_ADDRESS value
+                         * @property {number} CLOUD_FUNCTION_NOT_ACTIVE=22 CLOUD_FUNCTION_NOT_ACTIVE value
+                         * @property {number} VPC_CONNECTOR_NOT_SET=23 VPC_CONNECTOR_NOT_SET value
+                         * @property {number} VPC_CONNECTOR_NOT_RUNNING=24 VPC_CONNECTOR_NOT_RUNNING value
+                         * @property {number} FORWARDING_RULE_REGION_MISMATCH=25 FORWARDING_RULE_REGION_MISMATCH value
+                         * @property {number} PSC_CONNECTION_NOT_ACCEPTED=26 PSC_CONNECTION_NOT_ACCEPTED value
                          */
                         DropInfo.Cause = (function() {
                             var valuesById = {}, values = Object.create(valuesById);
@@ -18564,6 +18918,11 @@
                             values[valuesById[19] = "DROPPED_INSIDE_CLOUD_SQL_SERVICE"] = 19;
                             values[valuesById[20] = "GOOGLE_MANAGED_SERVICE_NO_PEERING"] = 20;
                             values[valuesById[21] = "CLOUD_SQL_INSTANCE_NO_IP_ADDRESS"] = 21;
+                            values[valuesById[22] = "CLOUD_FUNCTION_NOT_ACTIVE"] = 22;
+                            values[valuesById[23] = "VPC_CONNECTOR_NOT_SET"] = 23;
+                            values[valuesById[24] = "VPC_CONNECTOR_NOT_RUNNING"] = 24;
+                            values[valuesById[25] = "FORWARDING_RULE_REGION_MISMATCH"] = 25;
+                            values[valuesById[26] = "PSC_CONNECTION_NOT_ACCEPTED"] = 26;
                             return values;
                         })();
     
@@ -19120,6 +19479,506 @@
                         };
     
                         return CloudSQLInstanceInfo;
+                    })();
+    
+                    v1beta1.CloudFunctionInfo = (function() {
+    
+                        /**
+                         * Properties of a CloudFunctionInfo.
+                         * @memberof google.cloud.networkmanagement.v1beta1
+                         * @interface ICloudFunctionInfo
+                         * @property {string|null} [displayName] CloudFunctionInfo displayName
+                         * @property {string|null} [uri] CloudFunctionInfo uri
+                         * @property {string|null} [location] CloudFunctionInfo location
+                         * @property {number|Long|null} [versionId] CloudFunctionInfo versionId
+                         */
+    
+                        /**
+                         * Constructs a new CloudFunctionInfo.
+                         * @memberof google.cloud.networkmanagement.v1beta1
+                         * @classdesc Represents a CloudFunctionInfo.
+                         * @implements ICloudFunctionInfo
+                         * @constructor
+                         * @param {google.cloud.networkmanagement.v1beta1.ICloudFunctionInfo=} [properties] Properties to set
+                         */
+                        function CloudFunctionInfo(properties) {
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+    
+                        /**
+                         * CloudFunctionInfo displayName.
+                         * @member {string} displayName
+                         * @memberof google.cloud.networkmanagement.v1beta1.CloudFunctionInfo
+                         * @instance
+                         */
+                        CloudFunctionInfo.prototype.displayName = "";
+    
+                        /**
+                         * CloudFunctionInfo uri.
+                         * @member {string} uri
+                         * @memberof google.cloud.networkmanagement.v1beta1.CloudFunctionInfo
+                         * @instance
+                         */
+                        CloudFunctionInfo.prototype.uri = "";
+    
+                        /**
+                         * CloudFunctionInfo location.
+                         * @member {string} location
+                         * @memberof google.cloud.networkmanagement.v1beta1.CloudFunctionInfo
+                         * @instance
+                         */
+                        CloudFunctionInfo.prototype.location = "";
+    
+                        /**
+                         * CloudFunctionInfo versionId.
+                         * @member {number|Long} versionId
+                         * @memberof google.cloud.networkmanagement.v1beta1.CloudFunctionInfo
+                         * @instance
+                         */
+                        CloudFunctionInfo.prototype.versionId = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+    
+                        /**
+                         * Creates a new CloudFunctionInfo instance using the specified properties.
+                         * @function create
+                         * @memberof google.cloud.networkmanagement.v1beta1.CloudFunctionInfo
+                         * @static
+                         * @param {google.cloud.networkmanagement.v1beta1.ICloudFunctionInfo=} [properties] Properties to set
+                         * @returns {google.cloud.networkmanagement.v1beta1.CloudFunctionInfo} CloudFunctionInfo instance
+                         */
+                        CloudFunctionInfo.create = function create(properties) {
+                            return new CloudFunctionInfo(properties);
+                        };
+    
+                        /**
+                         * Encodes the specified CloudFunctionInfo message. Does not implicitly {@link google.cloud.networkmanagement.v1beta1.CloudFunctionInfo.verify|verify} messages.
+                         * @function encode
+                         * @memberof google.cloud.networkmanagement.v1beta1.CloudFunctionInfo
+                         * @static
+                         * @param {google.cloud.networkmanagement.v1beta1.ICloudFunctionInfo} message CloudFunctionInfo message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        CloudFunctionInfo.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.displayName != null && Object.hasOwnProperty.call(message, "displayName"))
+                                writer.uint32(/* id 1, wireType 2 =*/10).string(message.displayName);
+                            if (message.uri != null && Object.hasOwnProperty.call(message, "uri"))
+                                writer.uint32(/* id 2, wireType 2 =*/18).string(message.uri);
+                            if (message.location != null && Object.hasOwnProperty.call(message, "location"))
+                                writer.uint32(/* id 3, wireType 2 =*/26).string(message.location);
+                            if (message.versionId != null && Object.hasOwnProperty.call(message, "versionId"))
+                                writer.uint32(/* id 4, wireType 0 =*/32).int64(message.versionId);
+                            return writer;
+                        };
+    
+                        /**
+                         * Encodes the specified CloudFunctionInfo message, length delimited. Does not implicitly {@link google.cloud.networkmanagement.v1beta1.CloudFunctionInfo.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof google.cloud.networkmanagement.v1beta1.CloudFunctionInfo
+                         * @static
+                         * @param {google.cloud.networkmanagement.v1beta1.ICloudFunctionInfo} message CloudFunctionInfo message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        CloudFunctionInfo.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+    
+                        /**
+                         * Decodes a CloudFunctionInfo message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof google.cloud.networkmanagement.v1beta1.CloudFunctionInfo
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {google.cloud.networkmanagement.v1beta1.CloudFunctionInfo} CloudFunctionInfo
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        CloudFunctionInfo.decode = function decode(reader, length) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.networkmanagement.v1beta1.CloudFunctionInfo();
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                switch (tag >>> 3) {
+                                case 1:
+                                    message.displayName = reader.string();
+                                    break;
+                                case 2:
+                                    message.uri = reader.string();
+                                    break;
+                                case 3:
+                                    message.location = reader.string();
+                                    break;
+                                case 4:
+                                    message.versionId = reader.int64();
+                                    break;
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
+                                }
+                            }
+                            return message;
+                        };
+    
+                        /**
+                         * Decodes a CloudFunctionInfo message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof google.cloud.networkmanagement.v1beta1.CloudFunctionInfo
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {google.cloud.networkmanagement.v1beta1.CloudFunctionInfo} CloudFunctionInfo
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        CloudFunctionInfo.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+    
+                        /**
+                         * Verifies a CloudFunctionInfo message.
+                         * @function verify
+                         * @memberof google.cloud.networkmanagement.v1beta1.CloudFunctionInfo
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        CloudFunctionInfo.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            if (message.displayName != null && message.hasOwnProperty("displayName"))
+                                if (!$util.isString(message.displayName))
+                                    return "displayName: string expected";
+                            if (message.uri != null && message.hasOwnProperty("uri"))
+                                if (!$util.isString(message.uri))
+                                    return "uri: string expected";
+                            if (message.location != null && message.hasOwnProperty("location"))
+                                if (!$util.isString(message.location))
+                                    return "location: string expected";
+                            if (message.versionId != null && message.hasOwnProperty("versionId"))
+                                if (!$util.isInteger(message.versionId) && !(message.versionId && $util.isInteger(message.versionId.low) && $util.isInteger(message.versionId.high)))
+                                    return "versionId: integer|Long expected";
+                            return null;
+                        };
+    
+                        /**
+                         * Creates a CloudFunctionInfo message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof google.cloud.networkmanagement.v1beta1.CloudFunctionInfo
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {google.cloud.networkmanagement.v1beta1.CloudFunctionInfo} CloudFunctionInfo
+                         */
+                        CloudFunctionInfo.fromObject = function fromObject(object) {
+                            if (object instanceof $root.google.cloud.networkmanagement.v1beta1.CloudFunctionInfo)
+                                return object;
+                            var message = new $root.google.cloud.networkmanagement.v1beta1.CloudFunctionInfo();
+                            if (object.displayName != null)
+                                message.displayName = String(object.displayName);
+                            if (object.uri != null)
+                                message.uri = String(object.uri);
+                            if (object.location != null)
+                                message.location = String(object.location);
+                            if (object.versionId != null)
+                                if ($util.Long)
+                                    (message.versionId = $util.Long.fromValue(object.versionId)).unsigned = false;
+                                else if (typeof object.versionId === "string")
+                                    message.versionId = parseInt(object.versionId, 10);
+                                else if (typeof object.versionId === "number")
+                                    message.versionId = object.versionId;
+                                else if (typeof object.versionId === "object")
+                                    message.versionId = new $util.LongBits(object.versionId.low >>> 0, object.versionId.high >>> 0).toNumber();
+                            return message;
+                        };
+    
+                        /**
+                         * Creates a plain object from a CloudFunctionInfo message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof google.cloud.networkmanagement.v1beta1.CloudFunctionInfo
+                         * @static
+                         * @param {google.cloud.networkmanagement.v1beta1.CloudFunctionInfo} message CloudFunctionInfo
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        CloudFunctionInfo.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.defaults) {
+                                object.displayName = "";
+                                object.uri = "";
+                                object.location = "";
+                                if ($util.Long) {
+                                    var long = new $util.Long(0, 0, false);
+                                    object.versionId = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                                } else
+                                    object.versionId = options.longs === String ? "0" : 0;
+                            }
+                            if (message.displayName != null && message.hasOwnProperty("displayName"))
+                                object.displayName = message.displayName;
+                            if (message.uri != null && message.hasOwnProperty("uri"))
+                                object.uri = message.uri;
+                            if (message.location != null && message.hasOwnProperty("location"))
+                                object.location = message.location;
+                            if (message.versionId != null && message.hasOwnProperty("versionId"))
+                                if (typeof message.versionId === "number")
+                                    object.versionId = options.longs === String ? String(message.versionId) : message.versionId;
+                                else
+                                    object.versionId = options.longs === String ? $util.Long.prototype.toString.call(message.versionId) : options.longs === Number ? new $util.LongBits(message.versionId.low >>> 0, message.versionId.high >>> 0).toNumber() : message.versionId;
+                            return object;
+                        };
+    
+                        /**
+                         * Converts this CloudFunctionInfo to JSON.
+                         * @function toJSON
+                         * @memberof google.cloud.networkmanagement.v1beta1.CloudFunctionInfo
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        CloudFunctionInfo.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+    
+                        return CloudFunctionInfo;
+                    })();
+    
+                    v1beta1.VpcConnectorInfo = (function() {
+    
+                        /**
+                         * Properties of a VpcConnectorInfo.
+                         * @memberof google.cloud.networkmanagement.v1beta1
+                         * @interface IVpcConnectorInfo
+                         * @property {string|null} [displayName] VpcConnectorInfo displayName
+                         * @property {string|null} [uri] VpcConnectorInfo uri
+                         * @property {string|null} [location] VpcConnectorInfo location
+                         */
+    
+                        /**
+                         * Constructs a new VpcConnectorInfo.
+                         * @memberof google.cloud.networkmanagement.v1beta1
+                         * @classdesc Represents a VpcConnectorInfo.
+                         * @implements IVpcConnectorInfo
+                         * @constructor
+                         * @param {google.cloud.networkmanagement.v1beta1.IVpcConnectorInfo=} [properties] Properties to set
+                         */
+                        function VpcConnectorInfo(properties) {
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+    
+                        /**
+                         * VpcConnectorInfo displayName.
+                         * @member {string} displayName
+                         * @memberof google.cloud.networkmanagement.v1beta1.VpcConnectorInfo
+                         * @instance
+                         */
+                        VpcConnectorInfo.prototype.displayName = "";
+    
+                        /**
+                         * VpcConnectorInfo uri.
+                         * @member {string} uri
+                         * @memberof google.cloud.networkmanagement.v1beta1.VpcConnectorInfo
+                         * @instance
+                         */
+                        VpcConnectorInfo.prototype.uri = "";
+    
+                        /**
+                         * VpcConnectorInfo location.
+                         * @member {string} location
+                         * @memberof google.cloud.networkmanagement.v1beta1.VpcConnectorInfo
+                         * @instance
+                         */
+                        VpcConnectorInfo.prototype.location = "";
+    
+                        /**
+                         * Creates a new VpcConnectorInfo instance using the specified properties.
+                         * @function create
+                         * @memberof google.cloud.networkmanagement.v1beta1.VpcConnectorInfo
+                         * @static
+                         * @param {google.cloud.networkmanagement.v1beta1.IVpcConnectorInfo=} [properties] Properties to set
+                         * @returns {google.cloud.networkmanagement.v1beta1.VpcConnectorInfo} VpcConnectorInfo instance
+                         */
+                        VpcConnectorInfo.create = function create(properties) {
+                            return new VpcConnectorInfo(properties);
+                        };
+    
+                        /**
+                         * Encodes the specified VpcConnectorInfo message. Does not implicitly {@link google.cloud.networkmanagement.v1beta1.VpcConnectorInfo.verify|verify} messages.
+                         * @function encode
+                         * @memberof google.cloud.networkmanagement.v1beta1.VpcConnectorInfo
+                         * @static
+                         * @param {google.cloud.networkmanagement.v1beta1.IVpcConnectorInfo} message VpcConnectorInfo message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        VpcConnectorInfo.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.displayName != null && Object.hasOwnProperty.call(message, "displayName"))
+                                writer.uint32(/* id 1, wireType 2 =*/10).string(message.displayName);
+                            if (message.uri != null && Object.hasOwnProperty.call(message, "uri"))
+                                writer.uint32(/* id 2, wireType 2 =*/18).string(message.uri);
+                            if (message.location != null && Object.hasOwnProperty.call(message, "location"))
+                                writer.uint32(/* id 3, wireType 2 =*/26).string(message.location);
+                            return writer;
+                        };
+    
+                        /**
+                         * Encodes the specified VpcConnectorInfo message, length delimited. Does not implicitly {@link google.cloud.networkmanagement.v1beta1.VpcConnectorInfo.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof google.cloud.networkmanagement.v1beta1.VpcConnectorInfo
+                         * @static
+                         * @param {google.cloud.networkmanagement.v1beta1.IVpcConnectorInfo} message VpcConnectorInfo message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        VpcConnectorInfo.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+    
+                        /**
+                         * Decodes a VpcConnectorInfo message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof google.cloud.networkmanagement.v1beta1.VpcConnectorInfo
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {google.cloud.networkmanagement.v1beta1.VpcConnectorInfo} VpcConnectorInfo
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        VpcConnectorInfo.decode = function decode(reader, length) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.networkmanagement.v1beta1.VpcConnectorInfo();
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                switch (tag >>> 3) {
+                                case 1:
+                                    message.displayName = reader.string();
+                                    break;
+                                case 2:
+                                    message.uri = reader.string();
+                                    break;
+                                case 3:
+                                    message.location = reader.string();
+                                    break;
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
+                                }
+                            }
+                            return message;
+                        };
+    
+                        /**
+                         * Decodes a VpcConnectorInfo message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof google.cloud.networkmanagement.v1beta1.VpcConnectorInfo
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {google.cloud.networkmanagement.v1beta1.VpcConnectorInfo} VpcConnectorInfo
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        VpcConnectorInfo.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+    
+                        /**
+                         * Verifies a VpcConnectorInfo message.
+                         * @function verify
+                         * @memberof google.cloud.networkmanagement.v1beta1.VpcConnectorInfo
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        VpcConnectorInfo.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            if (message.displayName != null && message.hasOwnProperty("displayName"))
+                                if (!$util.isString(message.displayName))
+                                    return "displayName: string expected";
+                            if (message.uri != null && message.hasOwnProperty("uri"))
+                                if (!$util.isString(message.uri))
+                                    return "uri: string expected";
+                            if (message.location != null && message.hasOwnProperty("location"))
+                                if (!$util.isString(message.location))
+                                    return "location: string expected";
+                            return null;
+                        };
+    
+                        /**
+                         * Creates a VpcConnectorInfo message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof google.cloud.networkmanagement.v1beta1.VpcConnectorInfo
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {google.cloud.networkmanagement.v1beta1.VpcConnectorInfo} VpcConnectorInfo
+                         */
+                        VpcConnectorInfo.fromObject = function fromObject(object) {
+                            if (object instanceof $root.google.cloud.networkmanagement.v1beta1.VpcConnectorInfo)
+                                return object;
+                            var message = new $root.google.cloud.networkmanagement.v1beta1.VpcConnectorInfo();
+                            if (object.displayName != null)
+                                message.displayName = String(object.displayName);
+                            if (object.uri != null)
+                                message.uri = String(object.uri);
+                            if (object.location != null)
+                                message.location = String(object.location);
+                            return message;
+                        };
+    
+                        /**
+                         * Creates a plain object from a VpcConnectorInfo message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof google.cloud.networkmanagement.v1beta1.VpcConnectorInfo
+                         * @static
+                         * @param {google.cloud.networkmanagement.v1beta1.VpcConnectorInfo} message VpcConnectorInfo
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        VpcConnectorInfo.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.defaults) {
+                                object.displayName = "";
+                                object.uri = "";
+                                object.location = "";
+                            }
+                            if (message.displayName != null && message.hasOwnProperty("displayName"))
+                                object.displayName = message.displayName;
+                            if (message.uri != null && message.hasOwnProperty("uri"))
+                                object.uri = message.uri;
+                            if (message.location != null && message.hasOwnProperty("location"))
+                                object.location = message.location;
+                            return object;
+                        };
+    
+                        /**
+                         * Converts this VpcConnectorInfo to JSON.
+                         * @function toJSON
+                         * @memberof google.cloud.networkmanagement.v1beta1.VpcConnectorInfo
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        VpcConnectorInfo.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+    
+                        return VpcConnectorInfo;
                     })();
     
                     v1beta1.ReachabilityService = (function() {
